@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
-import { Calendar, Check, Clock, Baby, Plus, Trash2, AlertCircle, Edit2, Bell, Save, X, LogOut, BarChart3, Download, Printer, Moon, Sun, Award, TrendingUp, Users, Shield } from 'lucide-react';
+import { Calendar, Check, Clock, Baby, Plus, Trash2, AlertCircle, Edit2, Bell, Save, X, LogOut, BarChart3, Download, Printer, Moon, Sun, Award, Shield } from 'lucide-react';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -8,35 +8,35 @@ const supabase = createClient(
 );
 
 const standardVaccines = [
-  { name: 'Hepatitis B', ageMonths: 0, description: 'First dose at birth', category: 'Hepatitis' },
-  { name: 'Hepatitis B', ageMonths: 1, description: 'Second dose', category: 'Hepatitis' },
-  { name: 'DTaP', ageMonths: 2, description: 'Diphtheria, Tetanus, Pertussis', category: 'DTaP' },
-  { name: 'Hib', ageMonths: 2, description: 'Haemophilus influenzae type b', category: 'Hib' },
-  { name: 'IPV', ageMonths: 2, description: 'Polio vaccine', category: 'Polio' },
-  { name: 'PCV13', ageMonths: 2, description: 'Pneumococcal vaccine', category: 'Pneumococcal' },
-  { name: 'Rotavirus', ageMonths: 2, description: 'Oral vaccine', category: 'Rotavirus' },
-  { name: 'DTaP', ageMonths: 4, description: 'Second dose', category: 'DTaP' },
-  { name: 'Hib', ageMonths: 4, description: 'Second dose', category: 'Hib' },
-  { name: 'IPV', ageMonths: 4, description: 'Second dose', category: 'Polio' },
-  { name: 'PCV13', ageMonths: 4, description: 'Second dose', category: 'Pneumococcal' },
-  { name: 'Rotavirus', ageMonths: 4, description: 'Second dose', category: 'Rotavirus' },
-  { name: 'DTaP', ageMonths: 6, description: 'Third dose', category: 'DTaP' },
-  { name: 'Hib', ageMonths: 6, description: 'Third dose', category: 'Hib' },
-  { name: 'PCV13', ageMonths: 6, description: 'Third dose', category: 'Pneumococcal' },
-  { name: 'IPV', ageMonths: 6, description: 'Third dose', category: 'Polio' },
-  { name: 'Hepatitis B', ageMonths: 6, description: 'Third dose', category: 'Hepatitis' },
-  { name: 'Influenza', ageMonths: 6, description: 'Yearly vaccine', category: 'Influenza' },
-  { name: 'MMR', ageMonths: 12, description: 'Measles, Mumps, Rubella', category: 'MMR' },
-  { name: 'Varicella', ageMonths: 12, description: 'Chickenpox vaccine', category: 'Varicella' },
-  { name: 'Hepatitis A', ageMonths: 12, description: 'First dose', category: 'Hepatitis' },
-  { name: 'Hib', ageMonths: 12, description: 'Booster dose', category: 'Hib' },
-  { name: 'PCV13', ageMonths: 12, description: 'Booster dose', category: 'Pneumococcal' },
-  { name: 'DTaP', ageMonths: 15, description: 'Fourth dose', category: 'DTaP' },
-  { name: 'Hepatitis A', ageMonths: 18, description: 'Second dose', category: 'Hepatitis' },
-  { name: 'DTaP', ageMonths: 48, description: 'Fifth dose (4-6 years)', category: 'DTaP' },
-  { name: 'IPV', ageMonths: 48, description: 'Booster (4-6 years)', category: 'Polio' },
-  { name: 'MMR', ageMonths: 48, description: 'Second dose (4-6 years)', category: 'MMR' },
-  { name: 'Varicella', ageMonths: 48, description: 'Second dose (4-6 years)', category: 'Varicella' },
+  { name: 'Hepatitis B', ageMonths: 0, description: 'First dose at birth' },
+  { name: 'Hepatitis B', ageMonths: 1, description: 'Second dose' },
+  { name: 'DTaP', ageMonths: 2, description: 'Diphtheria, Tetanus, Pertussis' },
+  { name: 'Hib', ageMonths: 2, description: 'Haemophilus influenzae type b' },
+  { name: 'IPV', ageMonths: 2, description: 'Polio vaccine' },
+  { name: 'PCV13', ageMonths: 2, description: 'Pneumococcal vaccine' },
+  { name: 'Rotavirus', ageMonths: 2, description: 'Oral vaccine' },
+  { name: 'DTaP', ageMonths: 4, description: 'Second dose' },
+  { name: 'Hib', ageMonths: 4, description: 'Second dose' },
+  { name: 'IPV', ageMonths: 4, description: 'Second dose' },
+  { name: 'PCV13', ageMonths: 4, description: 'Second dose' },
+  { name: 'Rotavirus', ageMonths: 4, description: 'Second dose' },
+  { name: 'DTaP', ageMonths: 6, description: 'Third dose' },
+  { name: 'Hib', ageMonths: 6, description: 'Third dose' },
+  { name: 'PCV13', ageMonths: 6, description: 'Third dose' },
+  { name: 'IPV', ageMonths: 6, description: 'Third dose' },
+  { name: 'Hepatitis B', ageMonths: 6, description: 'Third dose' },
+  { name: 'Influenza', ageMonths: 6, description: 'Yearly vaccine' },
+  { name: 'MMR', ageMonths: 12, description: 'Measles, Mumps, Rubella' },
+  { name: 'Varicella', ageMonths: 12, description: 'Chickenpox vaccine' },
+  { name: 'Hepatitis A', ageMonths: 12, description: 'First dose' },
+  { name: 'Hib', ageMonths: 12, description: 'Booster dose' },
+  { name: 'PCV13', ageMonths: 12, description: 'Booster dose' },
+  { name: 'DTaP', ageMonths: 15, description: 'Fourth dose' },
+  { name: 'Hepatitis A', ageMonths: 18, description: 'Second dose' },
+  { name: 'DTaP', ageMonths: 48, description: 'Fifth dose (4-6 years)' },
+  { name: 'IPV', ageMonths: 48, description: 'Booster (4-6 years)' },
+  { name: 'MMR', ageMonths: 48, description: 'Second dose (4-6 years)' },
+  { name: 'Varicella', ageMonths: 48, description: 'Second dose (4-6 years)' },
 ];
 
 export default function BabyVax() {
@@ -47,15 +47,26 @@ export default function BabyVax() {
   const [password, setPassword] = useState('');
   const [authError, setAuthError] = useState('');
   const [darkMode, setDarkMode] = useState(false);
-  const [currentView, setCurrentView] = useState('dashboard'); // dashboard, vaccines, timeline
+  const [currentView, setCurrentView] = useState('dashboard');
   
   const [children, setChildren] = useState([]);
   const [selectedChild, setSelectedChild] = useState(null);
   const [showAddChild, setShowAddChild] = useState(false);
+  const [showAddVaccine, setShowAddVaccine] = useState(false);
   const [editingVaccine, setEditingVaccine] = useState(null);
+  const [showCompleteModal, setShowCompleteModal] = useState(null);
+  
+  // Form states
   const [vaccineNotes, setVaccineNotes] = useState('');
   const [vaccineReminder, setVaccineReminder] = useState('');
+  const [completionDate, setCompletionDate] = useState('');
   const [newChild, setNewChild] = useState({ name: '', dob: '' });
+  const [newVaccine, setNewVaccine] = useState({ 
+    name: '', 
+    ageMonths: '', 
+    description: '',
+    notes: ''
+  });
 
   useEffect(() => {
     checkUser();
@@ -157,6 +168,23 @@ export default function BabyVax() {
     }
   };
 
+  const addCustomVaccine = async () => {
+    if (!newVaccine.name || !newVaccine.ageMonths) return;
+
+    await supabase.from('vaccines').insert([{
+      child_id: selectedChild,
+      name: newVaccine.name,
+      age_months: parseInt(newVaccine.ageMonths),
+      description: newVaccine.description,
+      notes: newVaccine.notes,
+      completed: false
+    }]);
+
+    await loadChildren();
+    setNewVaccine({ name: '', ageMonths: '', description: '', notes: '' });
+    setShowAddVaccine(false);
+  };
+
   const deleteChild = async (childId) => {
     if (!confirm('Delete this child\'s records?')) return;
     await supabase.from('children').delete().eq('id', childId);
@@ -164,21 +192,37 @@ export default function BabyVax() {
     setSelectedChild(children.length > 1 ? children.find(c => c.id !== childId)?.id : null);
   };
 
-  const toggleVaccine = async (vaccineId) => {
-    const child = children.find(c => c.id === selectedChild);
-    const vaccine = child?.vaccines.find(v => v.id === vaccineId);
+  const openCompleteModal = (vaccine) => {
+    setShowCompleteModal(vaccine.id);
+    setCompletionDate(new Date().toISOString().split('T')[0]);
+  };
+
+  const completeVaccine = async () => {
+    if (!showCompleteModal) return;
     
-    if (vaccine) {
-      await supabase
-        .from('vaccines')
-        .update({
-          completed: !vaccine.completed,
-          date_given: !vaccine.completed ? new Date().toISOString().split('T')[0] : null,
-        })
-        .eq('id', vaccineId);
-      
-      await loadChildren();
-    }
+    await supabase
+      .from('vaccines')
+      .update({
+        completed: true,
+        date_given: completionDate
+      })
+      .eq('id', showCompleteModal);
+    
+    await loadChildren();
+    setShowCompleteModal(null);
+    setCompletionDate('');
+  };
+
+  const uncompleteVaccine = async (vaccineId) => {
+    await supabase
+      .from('vaccines')
+      .update({
+        completed: false,
+        date_given: null
+      })
+      .eq('id', vaccineId);
+    
+    await loadChildren();
   };
 
   const openEditVaccine = (vaccine) => {
@@ -388,7 +432,7 @@ export default function BabyVax() {
         {/* Navigation */}
         {currentChild && (
           <div className={`${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white/80 backdrop-blur-lg'} rounded-2xl shadow-xl p-4 mb-6 border ${darkMode ? '' : 'border-white/20'}`}>
-            <div className="flex gap-2">
+            <div className="flex gap-2 flex-wrap">
               <button
                 onClick={() => setCurrentView('dashboard')}
                 className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all ${
@@ -416,17 +460,11 @@ export default function BabyVax() {
                 Vaccines
               </button>
               <button
-                onClick={() => setCurrentView('timeline')}
-                className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all ${
-                  currentView === 'timeline'
-                    ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white'
-                    : darkMode
-                    ? 'text-gray-400 hover:bg-gray-700'
-                    : 'text-gray-600 hover:bg-gray-100'
-                }`}
+                onClick={() => setShowAddVaccine(true)}
+                className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold bg-green-600 text-white hover:bg-green-700 transition-all ml-auto"
               >
-                <Calendar className="w-5 h-5" />
-                Timeline
+                <Plus className="w-5 h-5" />
+                Add Custom Vaccine
               </button>
             </div>
           </div>
@@ -435,7 +473,6 @@ export default function BabyVax() {
         {/* Dashboard View */}
         {currentChild && currentView === 'dashboard' && (
           <div className="space-y-6">
-            {/* Stats Cards */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               <div className={`${darkMode ? 'bg-gradient-to-br from-green-900 to-green-800' : 'bg-gradient-to-br from-green-500 to-green-600'} rounded-2xl shadow-xl p-6 text-white`}>
                 <div className="flex items-center justify-between mb-2">
@@ -470,7 +507,6 @@ export default function BabyVax() {
               </div>
             </div>
 
-            {/* Progress Bar */}
             <div className={`${darkMode ? 'bg-gray-800' : 'bg-white/80 backdrop-blur-lg'} rounded-2xl shadow-xl p-6`}>
               <h2 className={`text-2xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-800'}`}>Vaccination Progress</h2>
               <div className="relative">
@@ -485,7 +521,6 @@ export default function BabyVax() {
               </div>
             </div>
 
-            {/* Quick Actions */}
             <div className={`${darkMode ? 'bg-gray-800' : 'bg-white/80 backdrop-blur-lg'} rounded-2xl shadow-xl p-6`}>
               <h2 className={`text-2xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-800'}`}>Quick Actions</h2>
               <div className="grid grid-cols-2 gap-4">
@@ -520,31 +555,85 @@ export default function BabyVax() {
                 <div className="space-y-3">
                   {groupedVaccines.due.map(vaccine => (
                     <div key={vaccine.id} className={`border-2 ${darkMode ? 'border-gray-700 bg-gray-900/50' : 'border-red-100 bg-red-50/50'} rounded-xl p-4 hover:shadow-lg transition-all`}>
-                      <div className="flex items-start justify-between">
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-1">
+                      {editingVaccine === vaccine.id ? (
+                        <div className="space-y-3">
+                          <div className="flex items-center gap-2 mb-2">
                             <h3 className={`font-bold text-lg ${darkMode ? 'text-white' : 'text-gray-800'}`}>{vaccine.name}</h3>
-                            <span className="bg-red-500 text-white text-xs px-3 py-1 rounded-full font-semibold">
-                              {vaccine.age_months === 0 ? 'Birth' : `${vaccine.age_months}m`}
-                            </span>
                           </div>
-                          <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>{vaccine.description}</p>
+                          <div>
+                            <label className={`block text-sm font-medium mb-1 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>Notes</label>
+                            <textarea
+                              value={vaccineNotes}
+                              onChange={(e) => setVaccineNotes(e.target.value)}
+                              placeholder="Add notes (reactions, batch number, clinic location...)"
+                              className={`w-full px-3 py-2 border rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none resize-none ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-200'}`}
+                              rows="3"
+                            />
+                          </div>
+                          <div>
+                            <label className={`block text-sm font-medium mb-1 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>Reminder Date</label>
+                            <input
+                              type="date"
+                              value={vaccineReminder}
+                              onChange={(e) => setVaccineReminder(e.target.value)}
+                              className={`w-full px-3 py-2 border rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-200'}`}
+                            />
+                          </div>
+                          <div className="flex gap-2">
+                            <button
+                              onClick={saveVaccineDetails}
+                              className="flex items-center gap-1 bg-green-500 text-white px-4 py-2 rounded-xl hover:bg-green-600 transition-all"
+                            >
+                              <Save className="w-4 h-4" />
+                              Save
+                            </button>
+                            <button
+                              onClick={() => setEditingVaccine(null)}
+                              className="flex items-center gap-1 bg-gray-300 text-gray-700 px-4 py-2 rounded-xl hover:bg-gray-400 transition-all"
+                            >
+                              <X className="w-4 h-4" />
+                              Cancel
+                            </button>
+                          </div>
                         </div>
-                        <div className="flex gap-2">
-                          <button
-                            onClick={() => openEditVaccine(vaccine)}
-                            className="bg-blue-500 text-white p-3 rounded-xl hover:bg-blue-600 transition-all"
-                          >
-                            <Edit2 className="w-5 h-5" />
-                          </button>
-                          <button
-                            onClick={() => toggleVaccine(vaccine.id)}
-                            className="bg-green-500 text-white p-3 rounded-xl hover:bg-green-600 transition-all"
-                          >
-                            <Check className="w-5 h-5" />
-                          </button>
+                      ) : (
+                        <div className="flex items-start justify-between">
+                          <div className="flex-1">
+                            <div className="flex items-center gap-2 mb-1">
+                              <h3 className={`font-bold text-lg ${darkMode ? 'text-white' : 'text-gray-800'}`}>{vaccine.name}</h3>
+                              <span className="bg-red-500 text-white text-xs px-3 py-1 rounded-full font-semibold">
+                                {vaccine.age_months === 0 ? 'Birth' : `${vaccine.age_months}m`}
+                              </span>
+                            </div>
+                            <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>{vaccine.description}</p>
+                            {vaccine.notes && (
+                              <div className={`mt-2 text-sm p-2 rounded-lg ${darkMode ? 'bg-blue-900/30 text-blue-300' : 'bg-blue-50 text-blue-700'}`}>
+                                <strong>Notes:</strong> {vaccine.notes}
+                              </div>
+                            )}
+                            {vaccine.reminder && (
+                              <div className="mt-2 flex items-center gap-1 text-sm text-amber-600">
+                                <Bell className="w-4 h-4" />
+                                <span>Reminder: {new Date(vaccine.reminder).toLocaleDateString()}</span>
+                              </div>
+                            )}
+                          </div>
+                          <div className="flex gap-2">
+                            <button
+                              onClick={() => openEditVaccine(vaccine)}
+                              className="bg-blue-500 text-white p-3 rounded-xl hover:bg-blue-600 transition-all"
+                            >
+                              <Edit2 className="w-5 h-5" />
+                            </button>
+                            <button
+                              onClick={() => openCompleteModal(vaccine)}
+                              className="bg-green-500 text-white p-3 rounded-xl hover:bg-green-600 transition-all"
+                            >
+                              <Check className="w-5 h-5" />
+                            </button>
+                          </div>
                         </div>
-                      </div>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -558,7 +647,7 @@ export default function BabyVax() {
                   Completed ({groupedVaccines.completed.length})
                 </h2>
                 <div className="grid gap-3">
-                  {groupedVaccines.completed.slice(0, 5).map(vaccine => (
+                  {groupedVaccines.completed.map(vaccine => (
                     <div key={vaccine.id} className={`border-2 ${darkMode ? 'border-gray-700 bg-green-900/20' : 'border-green-100 bg-green-50/50'} rounded-xl p-4`}>
                       <div className="flex items-center justify-between">
                         <div className="flex-1">
@@ -573,8 +662,41 @@ export default function BabyVax() {
                               Given: {new Date(vaccine.date_given).toLocaleDateString()}
                             </p>
                           )}
+                          {vaccine.notes && (
+                            <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'} mt-1`}>
+                              Notes: {vaccine.notes}
+                            </p>
+                          )}
                         </div>
+                        <button
+                          onClick={() => uncompleteVaccine(vaccine.id)}
+                          className="bg-gray-300 text-gray-700 p-2 rounded-lg hover:bg-gray-400 transition-all"
+                        >
+                          <X className="w-5 h-5" />
+                        </button>
                       </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {groupedVaccines?.upcoming?.length > 0 && (
+              <div className={`${darkMode ? 'bg-gray-800' : 'bg-white/80 backdrop-blur-lg'} rounded-2xl shadow-xl p-6`}>
+                <h2 className={`text-2xl font-bold mb-4 flex items-center gap-2 ${darkMode ? 'text-white' : 'text-gray-800'}`}>
+                  <Calendar className="w-6 h-6 text-blue-500" />
+                  Upcoming ({upcomingCount})
+                </h2>
+                <div className="grid gap-3">
+                  {groupedVaccines.upcoming.slice(0, 5).map(vaccine => (
+                    <div key={vaccine.id} className={`border ${darkMode ? 'border-gray-700' : 'border-gray-200'} rounded-xl p-4 opacity-70`}>
+                      <div className="flex items-center gap-2">
+                        <h3 className={`font-bold ${darkMode ? 'text-white' : 'text-gray-800'}`}>{vaccine.name}</h3>
+                        <span className="bg-blue-500 text-white text-xs px-2 py-1 rounded-full">
+                          {vaccine.age_months}m
+                        </span>
+                      </div>
+                      <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>{vaccine.description}</p>
                     </div>
                   ))}
                 </div>
@@ -583,38 +705,143 @@ export default function BabyVax() {
           </div>
         )}
 
-        {/* Timeline View */}
-        {currentChild && currentView === 'timeline' && (
-          <div className={`${darkMode ? 'bg-gray-800' : 'bg-white/80 backdrop-blur-lg'} rounded-2xl shadow-xl p-6`}>
-            <h2 className={`text-2xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-800'}`}>Vaccination Timeline</h2>
-            <div className="space-y-4">
-              {standardVaccines.reduce((acc, vaccine) => {
-                if (!acc.find(v => v.ageMonths === vaccine.ageMonths)) {
-                  acc.push(vaccine);
-                }
-                return acc;
-              }, []).sort((a, b) => a.ageMonths - b.ageMonths).map((milestone, index) => (
-                <div key={index} className="flex gap-4">
-                  <div className="flex flex-col items-center">
-                    <div className={`w-4 h-4 rounded-full ${darkMode ? 'bg-purple-600' : 'bg-purple-500'}`}></div>
-                    {index < standardVaccines.length - 1 && (
-                      <div className={`w-1 h-full ${darkMode ? 'bg-gray-700' : 'bg-gray-200'}`}></div>
-                    )}
-                  </div>
-                  <div className="flex-1 pb-8">
-                    <div className={`font-bold ${darkMode ? 'text-purple-400' : 'text-purple-600'} mb-2`}>
-                      {milestone.ageMonths === 0 ? 'At Birth' : `${milestone.ageMonths} Months`}
-                    </div>
-                    <div className="space-y-2">
-                      {standardVaccines.filter(v => v.ageMonths === milestone.ageMonths).map((v, i) => (
-                        <div key={i} className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                          • {v.name} - {v.description}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+        {/* Complete Vaccine Modal */}
+        {showCompleteModal && (
+          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+            <div className={`${darkMode ? 'bg-gray-800' : 'bg-white'} rounded-3xl p-8 max-w-md w-full shadow-2xl`}>
+              <h2 className={`text-2xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-800'}`}>Mark as Complete</h2>
+              <div className="space-y-4">
+                <div>
+                  <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                    Date Given
+                  </label>
+                  <input
+                    type="date"
+                    value={completionDate}
+                    onChange={(e) => setCompletionDate(e.target.value)}
+                    className={`w-full px-4 py-3 border-2 rounded-xl outline-none ${
+                      darkMode
+                        ? 'bg-gray-700 border-gray-600 text-white'
+                        : 'bg-white border-gray-200 focus:ring-2 focus:ring-indigo-500'
+                    }`}
+                  />
                 </div>
-              ))}
+                <div className="flex gap-3">
+                  <button
+                    onClick={completeVaccine}
+                    className="flex-1 bg-gradient-to-r from-green-600 to-green-700 text-white py-3 rounded-xl hover:shadow-lg transition-all font-semibold"
+                  >
+                    Complete
+                  </button>
+                  <button
+                    onClick={() => setShowCompleteModal(null)}
+                    className={`flex-1 py-3 rounded-xl font-semibold ${
+                      darkMode
+                        ? 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Add Custom Vaccine Modal */}
+        {showAddVaccine && (
+          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+            <div className={`${darkMode ? 'bg-gray-800' : 'bg-white'} rounded-3xl p-8 max-w-md w-full shadow-2xl`}>
+              <h2 className={`text-2xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-800'}`}>Add Custom Vaccine</h2>
+              <div className="space-y-4">
+                <div>
+                  <label className={`block text-sm font-medium mb-1 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                    Vaccine Name *
+                  </label>
+                  <input
+                    type="text"
+                    value={newVaccine.name}
+                    onChange={(e) => setNewVaccine({...newVaccine, name: e.target.value})}
+                    className={`w-full px-4 py-3 border-2 rounded-xl outline-none ${
+                      darkMode
+                        ? 'bg-gray-700 border-gray-600 text-white'
+                        : 'bg-white border-gray-200 focus:ring-2 focus:ring-indigo-500'
+                    }`}
+                    placeholder="e.g., COVID-19"
+                  />
+                </div>
+                <div>
+                  <label className={`block text-sm font-medium mb-1 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                    Age (in months) *
+                  </label>
+                  <input
+                    type="number"
+                    value={newVaccine.ageMonths}
+                    onChange={(e) => setNewVaccine({...newVaccine, ageMonths: e.target.value})}
+                    className={`w-full px-4 py-3 border-2 rounded-xl outline-none ${
+                      darkMode
+                        ? 'bg-gray-700 border-gray-600 text-white'
+                        : 'bg-white border-gray-200 focus:ring-2 focus:ring-indigo-500'
+                    }`}
+                    placeholder="e.g., 12"
+                    min="0"
+                  />
+                </div>
+                <div>
+                  <label className={`block text-sm font-medium mb-1 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                    Description
+                  </label>
+                  <input
+                    type="text"
+                    value={newVaccine.description}
+                    onChange={(e) => setNewVaccine({...newVaccine, description: e.target.value})}
+                    className={`w-full px-4 py-3 border-2 rounded-xl outline-none ${
+                      darkMode
+                        ? 'bg-gray-700 border-gray-600 text-white'
+                        : 'bg-white border-gray-200 focus:ring-2 focus:ring-indigo-500'
+                    }`}
+                    placeholder="e.g., First dose"
+                  />
+                </div>
+                <div>
+                  <label className={`block text-sm font-medium mb-1 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                    Notes
+                  </label>
+                  <textarea
+                    value={newVaccine.notes}
+                    onChange={(e) => setNewVaccine({...newVaccine, notes: e.target.value})}
+                    className={`w-full px-4 py-3 border-2 rounded-xl outline-none resize-none ${
+                      darkMode
+                        ? 'bg-gray-700 border-gray-600 text-white'
+                        : 'bg-white border-gray-200 focus:ring-2 focus:ring-indigo-500'
+                    }`}
+                    placeholder="Additional notes..."
+                    rows="3"
+                  />
+                </div>
+                <div className="flex gap-3">
+                  <button
+                    onClick={addCustomVaccine}
+                    className="flex-1 bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 rounded-xl hover:shadow-lg transition-all font-semibold"
+                  >
+                    Add Vaccine
+                  </button>
+                  <button
+                    onClick={() => {
+                      setShowAddVaccine(false);
+                      setNewVaccine({ name: '', ageMonths: '', description: '', notes: '' });
+                    }}
+                    className={`flex-1 py-3 rounded-xl font-semibold ${
+                      darkMode
+                        ? 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         )}
